@@ -11,20 +11,45 @@
 const loginForm = document.querySelector("#login-form");
 const loginInput = document.querySelector("#login-form input");
 
-function onLoginSubmit(e){
+const greeting = document.querySelector("#greeting");
+
+const HIDDEN_CLASSNAME = "hidden";
+const USERNAME_KEY = "username";
+
+function onLoginSubmit( e){
     // arguments.preventDefault()는 브라우저의 기본적인 이벤트에 따른 발생동작을 방지한다.
     // submit의 경우, 이벤트가 실행됨과 동시에 새로고침 되는데, 이 동작을 방지.
     e.preventDefault();
-    console.log(e);
-    console.log(loginInput.value)
+    // onLoginSubmit 함수가 실행되면 loginForm 변수에 hidden이라는 class를 추가한다.
+    loginForm.classList.add(HIDDEN_CLASSNAME);
+    const username = loginInput.value;
+    paintGreetings(username)
+    // username의 변수를 로컬에 저장하기
+    // localStorage를 이용
+    localStorage.setItem(USERNAME_KEY, username);
 }
 
-loginForm.addEventListener("submit", onLoginSubmit);
+function paintGreetings(username){
+    greeting.innerHTML = `Hello ${username}`
+    greeting.classList.remove(HIDDEN_CLASSNAME);
+}
+
+// localStorage에 값 유무에 따라 html표시 하기
+const saveUsername = localStorage.getItem(USERNAME_KEY);
+
+if (saveUsername === null){
+    loginForm.classList.remove(HIDDEN_CLASSNAME);
+    loginForm.addEventListener("submit", onLoginSubmit);
+} else{
+    paintGreetings(saveUsername);
+}
 
 // Events Part 2
 const link = document.querySelector("a");
-function handleLinkClick(){
-    alert("click!");
+
+function handleLinkClick(e){
+    e.preventDefault();
+    console.dir(e);
 }
 
-link.addEventListener("click", handleLinkClick)
+link.addEventListener("click", handleLinkClick);
