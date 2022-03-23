@@ -22,14 +22,14 @@ function onLoginSubmit( e){
     e.preventDefault();
     // onLoginSubmit 함수가 실행되면 loginForm 변수에 hidden이라는 class를 추가한다.
     loginForm.classList.add(HIDDEN_CLASSNAME);
-    const username = loginInput.value;
-    paintGreetings(username)
+    localStorage.setItem(USERNAME_KEY, loginInput.value);
+    paintGreetings()
     // username의 변수를 로컬에 저장하기
     // localStorage를 이용
-    localStorage.setItem(USERNAME_KEY, username);
 }
 
-function paintGreetings(username){
+function paintGreetings(){
+    const username = localStorage.getItem(USERNAME_KEY);
     greeting.innerHTML = `Hello ${username}`
     greeting.classList.remove(HIDDEN_CLASSNAME);
 }
@@ -41,15 +41,15 @@ if (saveUsername === null){
     loginForm.classList.remove(HIDDEN_CLASSNAME);
     loginForm.addEventListener("submit", onLoginSubmit);
 } else{
-    paintGreetings(saveUsername);
+    paintGreetings();
 }
 
 // Events Part 2
-const link = document.querySelector("a");
-
-function handleLinkClick(e){
-    e.preventDefault();
-    console.dir(e);
-}
-
-link.addEventListener("click", handleLinkClick);
+// const link = document.querySelector("a");
+//
+// function handleLinkClick(e){
+//     e.preventDefault();
+//     console.dir(e);
+// }
+//
+// link.addEventListener("click", handleLinkClick);
