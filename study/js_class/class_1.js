@@ -1,4 +1,4 @@
-// class get, set 복습
+// class get, set
 
 // 기본 흐름
 // 1. class constructor를 통하여 객체 프로퍼티 생성
@@ -46,7 +46,7 @@ class Rectangle {
     }
 }
 
-const square = new Rectangle(10,10);
+const square = new Rectangle(-10,10);
 console.log(square.area)
 
 class User{
@@ -59,7 +59,7 @@ class User{
         return this._age;
     }
     set age(value){
-        this._age = value < 0 ? '?' : value
+        this._age = value < 0 ? 0 : value
     }
 }
 
