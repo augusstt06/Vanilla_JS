@@ -7,6 +7,7 @@
 - 기본 데이터 타입 (Number, String, Boolean, undefined, null)등을 제외한 모든 것이 객체.
 - 이 객체를 만들기 위해서는 자신을 만드는데 사용된 proto type객체를 이용하여 만들어야 한다.
 - 생성된 객체 안에는  __proto__라는 속성이 있는데 이것이 바로 proto type이다.
+- 모든 객체는 __proto__를 통하여 자신의 ProtoType에 접근 할 수 있다.
   #### JS에서는 Proto Type Link와 Proto Type Object가 있는데 이 둘을 통틀어서 Proto Type이라고 한다.
 
 ### ProtoType Object
