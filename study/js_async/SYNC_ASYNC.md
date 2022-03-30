@@ -25,6 +25,7 @@
   3. Web API에서 비동기 함수의 이벤트가 발생하면, 해당 함수는 Task Queue에 이동
   4. Call Stack이 비어있는지 Event Loop가 확인 후, 비어있다면 Call Stack으로 Task Queue에 있는 함수를 이동시킨다.
   5. Call Stack에 있는 함수가 실행되고, 완료되면 Call Stack에서 사라진다.
+
 ####JS에는 3가지 비동기 처리 방식이 있다.
     1. CallBack 함수
     2. Promise
