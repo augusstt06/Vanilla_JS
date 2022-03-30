@@ -28,3 +28,10 @@
   - 하지만 __proto__라는 속성을 가지고 있는데, 이 __proto__가 부모인 함수의 ProtoType Object를 가르킨다.
   - 따라서 ProtoType Object를 참조하는 객체가 직접 ProtoType Object의 속성을 가지고 있디 않더라고, __proto__의 영향으로 연결되어 사용이 가능하다.
   - 이것을 ProtoTYpe Chain이라고 칭함.
+
+
+### 인스턴스?
+    생성자를 사용하여 만들어진 객체를 인스턴스라 칭한다.
+    ==> 함수에 할당되어 변환된 객체
+    ** 인스턴스를 생성하는데 사용되는 함수를 construnctor라고 한다. **
+- Function (함수 인스턴스를 생성하는 함수) -> Object 생성자 (Function 인스턴스) -> Object 객체(Object 인스턴스)의 관계를 가진다.
