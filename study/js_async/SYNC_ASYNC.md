@@ -30,3 +30,14 @@
     1. CallBack 함수
     2. Promise
     3. Promise를 활용한 async/await
+
+#### CallBack 함수의 단점
+- CallBack 함수를 이용한 비동기 처리는 콜백지옥에 빠질수도 있고, 큰 어려움은 에러처리가 힘들다는 점이 있다.
+  1. CallBack 함수는 비동기 함수이므로, 함수의 실행을 기다리지 않고 즉시 종료되어 Call Stack에서 제거 된다.
+  2. 이후에 이벤트가 발생하면 Task Queue로 이동 후 Call Stack이 비었을때 다시 Call Stack으로 이동한다.
+  3. Call Stack으로 이동할때, 이미 CallBack 함수는 제거된 상태 였기 때문에, 원래 있던 Call Stack에는 CallBack 함수가 존재하지 않는다.
+  4. 즉, 이동한 CallBack 함수를 호출한것이 CallBack 함수가 아니란 뜻이다.
+  5. 그런데 예외처리는 호출한 함수로 전달 되기 때문에 에러가 CallBack 함수로 전달 되지 않는다.
+  6. 결국, catch문에 handling 되지 않고 프로세스가 종료된다.
+
+#### 따라서, 이러한 단점을 보완하여 Promise 객체가 사용된다.
