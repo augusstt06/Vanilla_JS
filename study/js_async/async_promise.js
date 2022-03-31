@@ -52,3 +52,26 @@ foo.then(function (){
     console.log('foo가 5초 뒤에 rejected');
 })
 
+
+
+// Promise의 return값 === Promise의 인스턴스
+
+// Promise가 아닌 값 return시
+function not_Promise(){
+    return console.log('Not Promise');
+}
+// not_Promise의 return 값이 promise가 아니기 때문에 then 메서드를 사용할 수 없다.
+not_Promise().then(function (){
+    console.log('not_promise에서 then을 사용할 수 있는가?');
+})
+
+// Promise return시
+function _promise(){
+    return new Promise(function (resolve){
+        resolve();
+    });
+}
+// _promise의 return값이 promise이기 때문에, then 메서드를 사용할 수 있다.
+_promise().then(function (){
+    console.log('_promise는 then을 사용할 수 있는가?');
+})
