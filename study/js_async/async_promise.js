@@ -12,7 +12,7 @@ function find(id){
             console.log('waiting 1sec...');
             const user = {
                 id : id,
-                name : `user ${name}`,
+                name : `user ${id}`,
                 email : `${id}@test.com`
             };
             resolve(user);
@@ -23,3 +23,32 @@ function find(id){
 find(1).then(function (user){
     console.log(user)
 })
+
+
+// Pending, fulfilled, rejected
+
+const poo = new Promise(function (resolve){
+    // Promise 객체를 만든 직후이기 때문에 Pending 상태이다.
+    setTimeout(function (){
+        resolve();
+    }, 2000);
+})
+
+poo.then(function (){
+    // resolve 된 이후에 실행되는 코드이므로 fulfilled 상태를 가진다
+    console.log('poo가 1초 후에 fulfilled')
+})
+
+const foo = new Promise(function (resolve,reject){
+    setTimeout(function (){
+        reject();
+    }, 5000);
+})
+
+foo.then(function (){
+    console.log('foo가 5초 뒤에 fulfilled');
+})
+    .catch(function (){
+    console.log('foo가 5초 뒤에 rejected');
+})
+
