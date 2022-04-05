@@ -1,7 +1,8 @@
 ## Promise
 - 원하는 데이터를 얻을때까지 시간이 지연되는 경우
 - new 키워드와 생성자를 통하여 생성 할 수 있다. (생성자는 함수를 인자로 받는다)
-- 생성자의 함수 인자는 resolve와 reject, 2개의 파라미터를 가진다.
+- 인자로 받은 콜백함수는 내부에서 비동기 처리 작업을 수행한다.
+- 비동기 처리가 성공하면 resolve를, 실패하면 reject를 호출한다.
 #### Promise 객체 생성
     const promise = new Promise(function(resolve, reject) { ... } );
     
