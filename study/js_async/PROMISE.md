@@ -35,3 +35,13 @@
 - catch : 결과값에 대하여 예외처리 로직을 담은 콜백함수를 인자로 받는다.
 - then & catch 메서드는 또다른 Promise 객체를 반환한다.
 - 따라서, then & catch의 결과값에 대하여 then & catch를 다시 사용 할 수 있다.(Primise Chaining)
+
+## async, await
+    비동기처리 코드를 동기처럼 작성하기 위해 사용한다.
+    함수 앞에 async를 붙여 사용하며, 함수 안에서 Promise객체가 fulfilled상태가 될 때 까지 기다려야 할때 await을 사용한다.
+- async 함수의 return 값은 언제나 항상 Promise이다.
+- Promise의 then() 메서드의 인자로 넘기는 콜백 함수 내에서 여러개의 Promise를 중첩해서 호출할 경우, 가독성이 떨어짐
+- 이것을 해결하기위해 사용된다.
+- async함수에서 await 키워드를 만나는 순간, Promise 객체가 처리 될 때 까지 기다린다. 그 후 처리가 완료되면 반환
+- await 구문에서 Promise가 정상적으로 fulfilled되면, Promise객체를 반환
+- await 구문에서 Promise가 reject되면 throw문처럼 에러가 던져진다.
